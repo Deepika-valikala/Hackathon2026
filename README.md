@@ -46,9 +46,10 @@ Hackathon2026 is a three-round national-level coding competition organized by NI
 | Endpoint        | Method | Description                                |
 |-----------------|--------|--------------------------------------------|
 | `/api/register` | POST   | Register team (paymentProof file upload)   |
-| `/api/teams`    | GET    | Get list of registered teams                |
 | `/api/submit`   | POST   | Submit solution for a round                 |
 | `/api/leaderboard`| GET | Get sorted leaderboard results              |
+| `/api/registeredteams`| GET | Get registered Teams                    |
+
 
 ---
 
