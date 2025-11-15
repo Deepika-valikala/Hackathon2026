@@ -40,26 +40,7 @@ Hackathon2026 is a three-round national-level coding competition organized by NI
 
 ---
 
-## ✔ Website Structure  
-/Hackathon2026
-│ index.html
-│ css/
-│ ├─ bootstrap.css
-│ ├─ base.css
-│ ├─ main.css
-│ ├─ …
-│ js/
-│ ├─ script.js
-│ ├─ smooth-scroll.js
-│ ├─ …
-│ img/
-│ ├─ logo/
-│ ├─ hero/
-│ └─ …
-└─ backend/
-└─ server.js
 
----
 
 ## 🖥 Backend API Endpoints  
 | Endpoint        | Method | Description                                |
