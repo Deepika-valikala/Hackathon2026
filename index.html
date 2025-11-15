@@ -72,6 +72,8 @@
                                     <li><a class="scroll" href="#requirements">Requirements</a></li>
                                     <li><a class="scroll" href="#submit">Submit</a></li>
                                     <li><a class="scroll" href="#LeaderBoard">LeaderBoard</a></li>
+                                    <li><a class="scroll" href="#RegisteredTeams">RegisteredTeams</a></li>
+
 
                                    
                                     <li><a class="scroll" href="#contact">Contact</a></li>
@@ -745,6 +747,38 @@
 </section>
 
 <!--End of submission section-->
+<!--End of submission section-->
+
+<script>
+
+
+document.getElementById('solutionForm').onsubmit = async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+
+  const teamName = form.teamName.value;
+  const round = parseInt(form.round.value);
+  const solution = form.solution.value;
+
+  let res = await fetch(API + "/api/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ teamName, round, solution })
+  });
+
+  let r = await res.json();
+
+  document.getElementById('submitStatus').textContent =
+    r.status === "submitted"
+      ? "Solution submitted!"
+      : "Submit failed: " + (r.reason || "Unknown error");
+
+  console.log("SUBMIT RESPONSE:", r);
+};
+
+</script>
+
 <!--LeaderBoard Section-->
        <section id="leaderboard" class="pt-120 pb-120 brd-bottom">
   <div class="container">
@@ -771,6 +805,64 @@
   </div>
 </section>
 <!--End of LeaderBoard Section-->
+<!--Registered teams Section-->
+<section id="registeredTeams" class="pt-120 pb-120 brd-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 mb-50 text-center">
+        <h1 class="title">REGISTERED TEAMS</h1>
+
+        <button onclick="loadTeams()" 
+          style="
+            padding: 10px 20px;
+            margin-top: 15px;
+            background: linear-gradient(to right, #399BFF, #1E90FF);
+            color:white;
+            border:none;
+            border-radius:6px;
+            font-weight:bold;
+            cursor:pointer;
+          ">
+          Refresh Team List
+        </button>
+
+        <ul id="teamsList" style="margin-top:25px;"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--End of section-->
+<script>
+async function loadTeams() {
+  try {
+    const res = await fetch(API + "/api/teams");
+    const data = await res.json();
+
+    const list = document.getElementById("teamsList");
+    list.innerHTML = "";
+
+    if (!data.length) {
+      list.innerHTML = "<li>No teams registered yet.</li>";
+      return;
+    }
+
+    data.forEach(team => {
+      const li = document.createElement("li");
+      li.style.margin = "10px 0";
+      li.style.padding = "8px";
+      li.style.background = "#222";
+      li.style.color = "white";
+      li.style.borderRadius = "6px";
+      li.textContent = `${team.teamName} — ${team.college}`;
+      list.appendChild(li);
+    });
+
+  } catch (err) {
+    console.error("Error loading teams:", err);
+  }
+}
+</script>
 
 <!--Organizers section-->
 <section id="organizers" class="speakers pt-120 pb-120 brd-bottom">
@@ -933,30 +1025,31 @@ document.getElementById('regForm').onsubmit = async function(e) {
       : "Registration failed: " + (result.reason || "Unknown error");
 };
 
-// Solution Submission
-document.getElementById('solutionForm').onsubmit = async function(e) {
-  e.preventDefault();
-  let fd = new FormData(e.target);
-  let res = await fetch(API + "/api/submit", { method: "POST", body: fd });
-  let r = await res.json();
-  document.getElementById('submitStatus').textContent =
-    r.status === "submitted"
-      ? "Solution submitted!"
-      : "Submit failed: " + (r.reason || "Unknown error");
-};
+
 
 // Leaderboard
 async function getLeaderboard() {
   const res = await fetch(API + "/api/leaderboard");
   const data = await res.json();
+
   const lb = document.getElementById("leaderboardList");
   lb.innerHTML = "";
-  data.forEach(item => {
+
+  data.forEach((item, index) => {
     const li = document.createElement("li");
-    li.textContent = item.team + ": " + item.score;
+    li.style.listStyle = "none";
+    li.style.padding = "10px";
+    li.style.margin = "5px 0";
+    li.style.borderRadius = "8px";
+    li.style.background = "#f3e5f5";
+    li.style.color = "#4a148c";
+    li.style.fontWeight = "bold";
+
+    li.textContent = `${index + 1}. ${item.team} — ${item.score} pts`;
     lb.appendChild(li);
   });
 }
+
 </script>
 
 </body>

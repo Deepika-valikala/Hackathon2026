@@ -65,6 +65,7 @@ app.post('/api/submit', (req, res) => {
   // Scoring logic (5, 10, 20)
   const scoreToAdd = roundScores[round] || 0;
   leaderboard[teamName] += scoreToAdd;
+  console.log("SUBMIT BODY:",req.body)
 
   res.json({
     status: 'submitted',
