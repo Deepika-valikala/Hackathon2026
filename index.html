@@ -70,6 +70,9 @@
                                     <li><a class="scroll" href="#prizes">Prizes</a></li>
                                     <li><a class="scroll" href="#schedule">Schedule</a></li>
                                     <li><a class="scroll" href="#requirements">Requirements</a></li>
+                                    <li><a class="scroll" href="#submit">Submit</a></li>
+                                    <li><a class="scroll" href="#LeaderBoard">LeaderBoard</a></li>
+
                                    
                                     <li><a class="scroll" href="#contact">Contact</a></li>
                                 </ul>
@@ -574,65 +577,201 @@
         
         <!--Registration section-->
         <section id="register" class="register pt-120 pb-120 brd-bottom" style="background-color: #14060639;">
-            <!--Container-->
-            <div class="container">
-                <!--Row-->
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 mb-50 text-center">
-                        <h1 class="title">REGISTRATION</h1>
-                        <p class="title-lead mt-10">Register your team before December 30, 2025</p>
-                    </div>
-                </div>
-                <!--End row-->
-                
-                <!--Row-->
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                            <h3 class="gradient-text text-center mb-30">Registration Process</h3>
-                            
-                            <div style="margin-bottom: 30px;">
-                                <h4 style="color: #399BFF;">Step 1: Fill Online Form</h4>
-                                <p>Complete the registration form with team details</p>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdM_o_GvpWjmBvtxMeqemBsslzrn9GgoT3qf6jkRVpzIhaXdg/viewform?usp=publish-editor" class="but" target="_blank" style="margin-top: 10px; display: inline-block;">Go to Registration Form</a>
-                            </div>
-                            
-                            <div style="margin-bottom: 30px;">
-                                <h4 style="color: #399BFF;">Step 2: Payment</h4>
-                                <p><strong>Amount: ₹2,000 per team</strong></p>
-                                <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 10px;">
-                                    <p><strong>Bank Details:</strong></p>
-                                    <p>Account Name: XXXXX</p>
-                                    <p>Account Number: YYYYYY</p>
-                                    <p>IFSC Code: SBIN0007061</p>
-                                    <p>Bank: SBI</p>
-                                    <P>Branch:NIT Silchar</P>
-                                </div>
-                                <p style="margin-top: 10px;"><em>Upload payment screenshot in the registration form</em></p>
-                            </div>
-                            
-                            <div style="margin-bottom: 30px;">
-                                <h4 style="color: #399BFF;">Step 3: Confirmation</h4>
-                                <p>You will receive confirmation email within 48 hours with:</p>
-                                <ul style="padding-left: 20px;">
-                                    <li>Team ID</li>
-                                    <li>Google Drive access link (for team leader)</li>
-                                    <li>Further instructions</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="text-center" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee;">
-                                <p style="color: #ff0000;"><strong>Registration Closes: December 30, 2025, 11:59 PM</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End row-->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 mb-50 text-center">
+        <h1 class="title" style="color:#C77DFF;">REGISTRATION</h1>
+        <p class="title-lead mt-10" style="color:#E0AAFF;">Register your team before December 30, 2025</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+
+        <!-- PURPLE BOX -->
+        <div style="
+          background: #2A1A40;
+          padding: 40px;
+          border-radius: 12px;
+          box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        ">
+
+          <h3 class="gradient-text text-center mb-30" style="color: #E0AAFF;">Registration Process</h3>
+
+          <!-- STEP 1 -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #C77DFF;">Step 1: Fill Online Form</h4>
+            <p style="color: #E0AAFF;">Complete the registration form with team details</p>
+
+            <!-- FORM -->
+            <form id="regForm" enctype="multipart/form-data" 
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                max-width: 420px;
+                margin: 20px auto 0 auto;
+            ">
+              
+              <input type="text" name="teamName" placeholder="Team Name" required>
+              <input type="text" name="leader" placeholder="Team Leader" required>
+              <input type="text" name="members" placeholder="Members (comma-separated)" required>
+              <input type="text" name="college" placeholder="College" required>
+              <input type="email" name="email" placeholder="Email" required>
+
+              <label style="color: #E0AAFF;">Upload Payment Screenshot:</label>
+              <input type="file" name="paymentProof" required 
+                     style="background: #fff; padding: 10px; border-radius: 6px;">
+
+              <!-- Button -->
+              <button type="submit"
+                style="
+                  background: #C77DFF;
+                  color: black;
+                  padding: 12px;
+                  border: none;
+                  border-radius: 6px;
+                  font-weight: bold;
+                  cursor: pointer;
+                  transition: 0.3s;
+                "
+                onmouseover="this.style.background='#E0AAFF'"
+                onmouseout="this.style.background='#C77DFF'">
+                Register Team
+              </button>
+            </form>
+
+            <div id="regStatus" style="color: #E0AAFF; margin-top: 10px;"></div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #C77DFF;">Step 2: Payment</h4>
+            <p style="color:#fff;"><strong>Amount: ₹2,000 per team</strong></p>
+
+            <div style="background: #fff; padding: 15px; border-radius: 5px; margin-top: 10px; color:black;">
+              <p><strong>Bank Details:</strong></p>
+              <p>Account Name: XXXXX</p>
+              <p>Account Number: YYYYYY</p>
+              <p>IFSC Code: SBIN0007061</p>
+              <p>Bank: SBI</p>
+              <p>Branch: NIT Silchar</p>
             </div>
-            <!--End container-->
-        </section>
-        <!--End registration section-->
-       
+
+            <p style="margin-top: 10px; color: #E0AAFF;">
+              <em>Upload payment screenshot in the registration form</em>
+            </p>
+          </div>
+
+          <!-- STEP 3 -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #C77DFF;">Step 3: Confirmation</h4>
+            <p style="color: #E0AAFF;">You will receive a confirmation email within 48 hours with:</p>
+            <ul style="padding-left: 20px; color: #E0AAFF;">
+              <li>Team ID</li>
+              <li>Google Drive access link (for team leader)</li>
+              <li>Further instructions</li>
+            </ul>
+          </div>
+
+          <!-- DEADLINE -->
+          <div class="text-center" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #444;">
+            <p style="color: #FF4B4B;">
+              <strong>Registration Closes: December 30, 2025, 11:59 PM</strong>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--End registration section-->
+<section id="submission" class="submission pb-120 brd-bottom" style="background-color: #14060639;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 mb-50 text-center">
+        <h1 class="title">SUBMIT SOLUTION</h1>
+        <p class="title-lead mt-10">Submit your solution for each round here.</p>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <!-- FORM WITH DARK THEME MATCHING THE SECTION -->
+      <form id="solutionForm" 
+        style="
+          display: flex; 
+          flex-direction: column; 
+          gap: 16px; 
+          max-width: 400px; 
+          margin: 20px auto 0 auto;
+          background: #1c1c1c; 
+          padding: 25px; 
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        ">
+
+        <input type="text" name="teamName" placeholder="Team Name" required
+          style="padding: 10px; border-radius: 6px; border: 1px solid #399BFF; background:#111; color:white;">
+
+        <input type="text" name="round" placeholder="Round (1/2/3)" required
+          style="padding: 10px; border-radius: 6px; border: 1px solid #399BFF; background:#111; color:white;">
+
+        <textarea name="solution" placeholder="Paste/Upload Solution" required rows="5"
+          style="padding: 10px; border-radius: 6px; border: 1px solid #399BFF; background:#111; color:#399BFF;"></textarea>
+
+        <button type="submit" 
+          style="
+            padding: 12px; 
+            border-radius: 6px; 
+            border: none; 
+            background: #399BFF; 
+            color: #000;
+            font-weight: bold;
+          ">
+          Submit Solution
+        </button>
+      </form>
+
+      <div id="submitStatus" style="margin-top: 20px; color:white;"></div>
+
+    </div>
+  </div>
+</section>
+
+<!--End of submission section-->
+<!--LeaderBoard Section-->
+       <section id="leaderboard" class="pt-120 pb-120 brd-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 mb-50 text-center">
+        <h1 class="title">LEADERBOARD</h1>
+        <button onclick="getLeaderboard()" 
+  style="
+    padding: 10px 20px;
+    margin-top: 15px;
+    background: linear-gradient(to right, #8A2BE2, #DA70D6);
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+  Refresh Leaderboard
+</button>
+
+        <ul id="leaderboardList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End of LeaderBoard Section-->
+
 <!--Organizers section-->
 <section id="organizers" class="speakers pt-120 pb-120 brd-bottom">
     <!--Container-->
@@ -776,5 +915,49 @@ Assam</p>
     <script src="js/jquery.validate.min.js" type="text/javascript"></script>
     <script src="js/venobox.min.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
+    <script>
+const API = "http://localhost:3000"; // Change to server URL if hosted
+
+// Registration
+document.getElementById('regForm').onsubmit = async function(e) {
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  let res = await fetch(API + "/api/register", {
+    method: "POST",
+    body: formData
+  });
+  let result = await res.json();
+  document.getElementById("regStatus").textContent =
+    result.status === "registered"
+      ? "Registration successful! Team: " + result.teamName
+      : "Registration failed: " + (result.reason || "Unknown error");
+};
+
+// Solution Submission
+document.getElementById('solutionForm').onsubmit = async function(e) {
+  e.preventDefault();
+  let fd = new FormData(e.target);
+  let res = await fetch(API + "/api/submit", { method: "POST", body: fd });
+  let r = await res.json();
+  document.getElementById('submitStatus').textContent =
+    r.status === "submitted"
+      ? "Solution submitted!"
+      : "Submit failed: " + (r.reason || "Unknown error");
+};
+
+// Leaderboard
+async function getLeaderboard() {
+  const res = await fetch(API + "/api/leaderboard");
+  const data = await res.json();
+  const lb = document.getElementById("leaderboardList");
+  lb.innerHTML = "";
+  data.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item.team + ": " + item.score;
+    lb.appendChild(li);
+  });
+}
+</script>
+
 </body>
 </html>
