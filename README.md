@@ -75,5 +75,7 @@ Hackathon2026 is a three-round national-level coding competition organized by NI
    ```bash
    git clone https://github.com/Deepika-valikala/Hackathon2026.git
    cd Hackathon2026
-2.run node app.js(for backend)
-3.start index.html(for frontend)
+2.npm install(for backend)
+3.run node app.js
+4.Double-click index.html, or Right-click → Open With → Chrome/Edge
+
