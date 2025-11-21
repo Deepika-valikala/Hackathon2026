@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"name": "Hackathon2026",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Hackathon2026",
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"ssh": "Disabled",
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "MySQL",
+				"username": "root",
+				"database": "Hackathon"
+			}
+		]
+	}
+}
