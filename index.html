@@ -18,7 +18,69 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,700" rel="stylesheet">
     <link rel="icon" href="img/logo/nit_logo.png">
 </head>
+<style>
+    .stat-card{
+    background:#1b1b1b;
+    padding:30px 20px;
+    border-radius:15px;
+    border:2px solid #399BFF;
+    transition:.3s;
+    margin-bottom:20px;
+}
 
+.stat-card:hover{
+    transform:translateY(-8px);
+    border-color:#EE71F9;
+    box-shadow:0 10px 25px rgba(57,155,255,.3);
+}
+
+.stat-card h2{
+    color:#399BFF;
+    font-size:42px;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.stat-card p{
+    color:white;
+    font-size:18px;
+    margin:0;
+}
+.login-btn,
+.dashboard-btn{
+    display:inline-block;
+    margin-left:15px;
+    padding:12px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+/* Login Button */
+.login-btn{
+    border:2px solid #399BFF;
+    color:#399BFF;
+    background:transparent;
+}
+
+.login-btn:hover{
+    background:#399BFF;
+    color:white;
+}
+
+/* Dashboard Button */
+.dashboard-btn{
+    background:#22c55e;
+    color:white;
+    display:none;
+}
+
+.dashboard-btn:hover{
+    background:#16a34a;
+}
+</style>
 <div id="popupMsg" style="
   display:none;
   position:fixed;
@@ -82,17 +144,16 @@
                                 </div>
                                 <ul>
                                     <li><a class="scroll" href="#wrapper">Home</a></li>
-                                    <li><a class="scroll" href="#about">About</a></li>
-                                    <li><a class="scroll" href="#rounds">Rounds</a></li>
-                                    <li><a class="scroll" href="#prizes">Prizes</a></li>
-                                    <li><a class="scroll" href="#schedule">Schedule</a></li>
-                                    <li><a class="scroll" href="#requirements">Requirements</a></li>
-                                    <li><a class="scroll" href="#submit">Submit</a></li>
-                                    <li><a class="scroll" href="#LeaderBoard">LeaderBoard</a></li>
-                                    <li><a class="scroll" href="#RegisteredTeams">RegisteredTeams</a></li>
+<li><a class="scroll" href="#about">About</a></li>
+<li><a class="scroll" href="#rounds">Rounds</a></li>
+<li><a class="scroll" href="#prizes">Prizes</a></li>
+<li><a class="scroll" href="#schedule">Schedule</a></li>
+<li><a class="scroll" href="#requirements">Requirements</a></li>
+<li><a class="scroll" href="#submission">Submit</a></li>
+<li><a class="scroll" href="#leaderboard">Leaderboard</a></li>
 
-
-                                   
+<li><a href="login.html">Login</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
                                     <li><a class="scroll" href="#contact">Contact</a></li>
                                 </ul>
                             </nav>
@@ -114,7 +175,17 @@
                         <h1 style="color: white; font-size: 3em; margin-top: 20px;">HACKATHON 2026</h1>
                         <h4>NATIONAL-LEVEL CODING COMPETITION</h4>
                         <p class="gradient-text"><strong>Registrations Open until December 30, 2025</strong></p>
-                        <a href="#register" class="but scroll">Register Now - ₹2,000/Team</a>
+                        <a href="#register" class="but scroll">
+    Register Now - ₹2,000/Team
+</a>
+
+<a href="login.html" id="loginBtn" class="login-btn">
+    Login
+</a>
+
+<a href="dashboard.html" id="dashboardBtn" class="dashboard-btn">
+    Dashboard
+</a>
                     </div>
                 </div>
                 <!--End row-->
@@ -122,7 +193,45 @@
             <!--End container-->
         </section>
         <!--End hero section-->
+<section id="stats" style="background:#111;padding:70px 0;">
 
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <h2 id="teamCount">0</h2>
+                    <p>👥 Registered Teams</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <h2>₹1.2L</h2>
+                    <p>🏆 Prize Pool</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <h2>24 Hrs</h2>
+                    <p>💻 Final Hackathon</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <h2>3</h2>
+                    <p>⚡ Competition Rounds</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
         <!--About section-->
         <section id="about" class="about pt-120 pb-120 brd-bottom">
             <!--Container-->
@@ -244,7 +353,9 @@
                         <div class="block-info-1" style="text-align: center; padding: 40px; border: 2px solid #399BFF; border-radius: 10px; margin-bottom: 20px;">
                             <h2 class="gradient-text">ROUND 1</h2>
                             <h4 style="margin-top: 20px;">Online Screening</h4>
-                            <p style="margin-top: 15px;"><strong>📅 January 2026, 2nd week</strong></p>
+                            <p style="margin-top:15px; text-align:center;">
+    <strong>📅 January 2026, 2nd Week</strong>
+</p>
                             <hr style="border-color: #EE71F9;">
                             <ul style="list-style: none; padding: 0; text-align: left;">
 
@@ -399,18 +510,27 @@
             <!--Container-->
             <div class="container">
                 <!--Row-->
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 mb-100 text-center">
-                        <h1 class="title">EVENT SCHEDULE</h1>
-                        <p class="title-lead mt-10">Complete timeline of the hackathon from registration to finals</p>
-                    </div>
-                </div>
+                <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+
+        <h1 class="title"
+            style="text-align:center; margin-bottom:15px;">
+            EVENT SCHEDULE
+        </h1>
+
+        <p class="title-lead"
+           style="text-align:center; margin:0 auto; max-width:700px;">
+            Complete timeline of the hackathon from registration to finals
+        </p>
+
+    </div>
+</div>
                 <!--End row-->
             </div>
             <!--End container-->
             
             <!--Container-->
-            <div class="container schedule">
+<div class="container schedule" style="margin-top:60px;">
                 <!--Row-->
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1">
@@ -633,12 +753,61 @@
                 margin: 20px auto 0 auto;
             ">
               
-              <input type="text" name="teamName" placeholder="Team Name" required>
-              <input type="text" name="leader" placeholder="Team Leader" required>
-              <input type="text" name="members" placeholder="Members (comma-separated)" required>
-              <input type="text" name="college" placeholder="College" required>
-              <input type="email" name="email" placeholder="Email" required>
+              <input
+type="text"
+name="teamName"
+placeholder="👥 Team Name"
+required
+oninvalid="this.setCustomValidity('Please enter your team name')"
+oninput="this.setCustomValidity('')">
 
+<input
+type="text"
+name="leader"
+placeholder="👤 Team Leader"
+required
+oninvalid="this.setCustomValidity('Please enter the team leader name')"
+oninput="this.setCustomValidity('')">
+
+<input
+type="text"
+name="members"
+placeholder="👨‍💻 Members (comma-separated)"
+required
+oninvalid="this.setCustomValidity('Please enter all team members')"
+oninput="this.setCustomValidity('')">
+
+<input
+type="text"
+name="college"
+placeholder="🏫 College"
+required
+oninvalid="this.setCustomValidity('Please enter your college name')"
+oninput="this.setCustomValidity('')">
+<input
+type="email"
+name="email"
+placeholder="📧 Email Address"
+required
+oninvalid="this.setCustomValidity('Please enter a valid email address')"
+oninput="this.setCustomValidity('')">
+
+<input
+type="password"
+name="password"
+placeholder="🔒 Create Password"
+required
+minlength="6"
+oninvalid="this.setCustomValidity('Password must be at least 6 characters')"
+oninput="this.setCustomValidity('')">
+
+<input
+type="password"
+name="confirmPassword"
+placeholder="🔑 Confirm Password"
+required
+oninvalid="this.setCustomValidity('Please confirm your password')"
+oninput="this.setCustomValidity('')">
               <label style="color: #E0AAFF;">Upload Payment Screenshot:</label>
               <input type="file" name="paymentProof" required 
                      style="background: #fff; padding: 10px; border-radius: 6px;">
@@ -657,7 +826,7 @@
                 "
                 onmouseover="this.style.background='#E0AAFF'"
                 onmouseout="this.style.background='#C77DFF'">
-                Register Team
+                🚀 Register Team
               </button>
             </form>
 
@@ -736,8 +905,7 @@
           box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         ">
 
-        <input type="text" name="teamName" placeholder="Team Name" required
-          style="padding: 10px; border-radius: 6px; border: 1px solid #399BFF; background:#111; color:white;">
+        
 
         <input type="text" name="round" placeholder="Round (1/2/3)" required
           style="padding: 10px; border-radius: 6px; border: 1px solid #399BFF; background:#111; color:white;">
@@ -867,25 +1035,67 @@ async function loadTeams() {
     <!--End container-->
     
     <div class="container block-content">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="block-info-1" style="margin-top: 50px; background: white; padding: 40px; border-radius: 10px;;">
-                    <h3 class="gradient-text mb-20" style="text-align: center;">ABOUT THE ORGANIZING COMMITTEE</h3>
-                    <p class="title-lead" style="text-align: center;">
-                        National Institute of Technology Silchar is one of the premier technical institutions 
-                        in India, recognized for its excellence in education and research. This hackathon is 
-                        organized by a dedicated team of 3rd-year B.Tech Computer Science students who are 
-                        passionate about fostering innovation and coding culture.
-                    </p>
-                    <p class="title-lead mt-20" style="text-align: center;">
-                        Our goal is to provide a platform for students across India to showcase their talent, 
-                        learn new technologies, and collaborate on solving real-world problems through AI/ML 
-                        and innovative coding solutions.
-                    </p>
-                </div>
+    <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+            <div class="block-info-1"
+                 style="margin-top:50px;
+                        background:white;
+                        padding:45px;
+                        border-radius:12px;
+                        box-shadow:0 8px 20px rgba(0,0,0,.08);">
+
+               <h3 class="gradient-text mb-30" style="text-align:center;">
+    ABOUT THE ORGANIZING COMMITTEE
+</h3>
+
+<p style="
+text-align:justify;
+line-height:1.9;
+font-size:18px;
+color:#475569;
+max-width:850px;
+margin:0 auto 25px auto;
+">
+
+<strong style="color:#4F46E5;">Hackathon 2026</strong> is proudly organized by the
+<strong style="color:#4F46E5;">Department of Computer Science and Engineering,
+National Institute of Technology Silchar.</strong>
+The event is led by dedicated faculty members and enthusiastic student coordinators committed to promoting innovation, collaboration, and technical excellence.
+
+</p>
+
+<p style="
+text-align:justify;
+line-height:1.9;
+font-size:18px;
+color:#475569;
+max-width:850px;
+margin:0 auto 25px auto;
+">
+
+Our mission is to provide a national platform where students from universities across India can showcase their creativity, solve real-world challenges, and build innovative solutions in Artificial Intelligence, Machine Learning, Web Development, Cybersecurity, and Cloud Computing.
+
+</p>
+
+<p style="
+text-align:justify;
+line-height:1.9;
+font-size:18px;
+color:#475569;
+max-width:850px;
+margin:0 auto;
+">
+
+We warmly welcome passionate developers, designers, and innovators to join us for an exciting journey of learning, networking, teamwork, and building impactful solutions.
+
+</p>
+
             </div>
+
         </div>
     </div>
+</div>
 </section>
 <!--End organizers section-->
 
@@ -964,26 +1174,95 @@ Assam</p>
         <!--End location section-->
         
         <!--Footer-->
-        <footer class="pt-120 bg-dark">
-            <div class="bottom-footer bg-black pt-50 pb-50">
-                <!--Container-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="gradient-text">© 2025 NIT Silchar Hackathon 2026 | Made with ❤️ by Team Ignite Crew</p>
-                            <a class="gradient-text scroll" href="mailto:hackathon2026@nitsilchar.ac.in">Contact us</a>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="block-legal">
-                                <li><span><a class="gradient-text scroll" href="https://github.com/meenhacks/Code-of-Conduct/blob/master/code-of-conduct.md">Code of Conduct</a></span></li>
-                                <li><span><a class="gradient-text scroll" href="#wrapper">Back To Top</a></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--End container-->
+        <footer id="footer" style="background:#0f172a;padding:60px 0 20px;color:white;">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- About -->
+            <div class="col-md-4">
+
+                <h3 style="color:#399BFF;">
+                    NIT Silchar Hackathon 2026
+                </h3>
+
+                <p style="margin-top:15px;color:#cbd5e1;line-height:28px;">
+                    A national level coding hackathon organized by
+                    National Institute of Technology Silchar to promote
+                    innovation, collaboration and problem solving.
+                </p>
+
             </div>
-        </footer>
+
+            <!-- Quick Links -->
+            <div class="col-md-4">
+
+                <h3 style="color:#399BFF;">Quick Links</h3>
+
+                <ul style="list-style:none;padding:0;line-height:35px;">
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#rounds">Rounds</a></li>
+
+                    <li><a href="#register">Register</a></li>
+
+                    <li><a href="#submission">Submission</a></li>
+
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4">
+
+                <h3 style="color:#399BFF;">Contact</h3>
+
+                <p>📍 NIT Silchar, Assam, India</p>
+
+                <p>📧 hackathon@nits.ac.in</p>
+
+                <p>☎ +91 9876543210</p>
+
+                <div style="margin-top:20px;">
+
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-github"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr style="margin:40px 0;border-color:#334155;">
+
+        <div style="text-align:center;color:#94a3b8;">
+
+            © 2026 NIT Silchar Hackathon.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
     </div>
     <!--End wrapper-->
     
@@ -997,77 +1276,290 @@ Assam</p>
  <script>
     const API = "http://localhost:3000/";
 
-  // Registration Form Handler
-  document.getElementById('regForm').onsubmit = async function(e) {
+// =========================
+// Registration Form
+// =========================
+document.getElementById('regForm').onsubmit = async function(e) {
+
     e.preventDefault();
+
     let formData = new FormData(e.target);
-    let res = await fetch(API + 'api/register', { method: "POST", body: formData });
+
+    // Check password
+    const password = formData.get("password");
+    const confirmPassword = formData.get("confirmPassword");
+
+    if (password !== confirmPassword) {
+        showPopup("Passwords do not match!");
+        return;
+    }
+
+    let res = await fetch(API + 'api/register', {
+        method: "POST",
+        body: formData
+    });
+
     let result = await res.json();
 
-    // Show registration status in popup
-    if(result.status === 'pending') {
-      showPopup("Registration submitted! Waiting for approval.");
-    } else {
-      showPopup("Registration failed: " + (result.error?.code || "Unknown error"));
+    if(result.status === 'pending'){
+        showPopup("Registration submitted! Waiting for approval.");
+    }else{
+        showPopup("Registration failed: " + (result.message || "Unknown error"));
     }
+
     e.target.reset();
-  };
+};
+function showPopup(msg) {
 
-  function showPopup(msg) {
-    const popup = document.getElementById('popupMsg');
-    popup.textContent = msg;
-    popup.style.display = 'block';
-    setTimeout(() => popup.style.display = 'none', 2000);
-  }
+    const popup = document.getElementById("popupMsg");
 
-  // Solution Submit Handler
-  document.getElementById('solutionForm').onsubmit = async function(e) {
+    popup.innerHTML = msg;
+
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 2500);
+}
+
+// =========================
+// Solution Submission
+// =========================
+document.getElementById("solutionForm").onsubmit = async function (e) {
+
     e.preventDefault();
+
     const form = e.target;
-    const teamName = form.teamName.value;
+
     const round = parseInt(form.round.value);
+
     const solution = form.solution.value;
-    let res = await fetch(API + 'api/submit', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ teamName, round, solution })
-    });
-    let r = await res.json();
-    document.getElementById('submitStatus').textContent =
-      r.status === "submitted"
-        ? "Solution submitted! +" + r.addedScore + " points."
-        : "Submit failed: " + (r.error?.code || "Unknown error");
-  };
 
-  // Load all registered teams
-  async function loadTeams() {
-    const res = await fetch(API + 'api/teams');
+    const token = localStorage.getItem("token");
+
+    const res = await fetch(API + "api/submit", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+
+        body: JSON.stringify({
+            round,
+            solution
+        })
+
+    });
+
     const data = await res.json();
-    const list = document.getElementById('teamsList');
-    list.innerHTML = '';
-    if (!data.length) {
-      list.innerHTML = "<li>No teams registered yet.</li>";
-      return;
+
+    document.getElementById("submitStatus").innerHTML =
+        data.message;
+
+    if (data.status === "submitted") {
+
+        form.reset();
+
+        getLeaderboard();
     }
-    data.forEach(team => {
-      const li = document.createElement('li');
-      li.textContent = `${team.teamName} (${team.college}) - Status: ${team.status}`;
-      list.appendChild(li);
-    });
-  }
 
-  // Load leaderboard
-  async function getLeaderboard() {
-    const res = await fetch(API + 'api/leaderboard');
+};
+
+// =========================
+// Registered Teams
+// =========================
+async function loadTeams() {
+
+    const res = await fetch(API + "api/teams");
+
     const data = await res.json();
-    const lb = document.getElementById('leaderboardList');
-    lb.innerHTML = '';
-    data.forEach((item, index) => {
-      const li = document.createElement('li');
-      li.textContent = (index + 1) + ". " + item.team + " – " + item.score + " pts";
-      lb.appendChild(li);
+
+    const list = document.getElementById("teamsList");
+
+    list.innerHTML = "";
+
+    if (data.length === 0) {
+
+        list.innerHTML =
+            "<h3>No teams registered yet.</h3>";
+
+        return;
+    }
+
+    data.forEach(team => {
+
+        list.innerHTML += `
+
+<div style="
+background:#111;
+color:white;
+padding:20px;
+margin:18px 0;
+border-radius:12px;
+border-left:6px solid #399BFF;
+box-shadow:0 8px 18px rgba(0,0,0,.35);
+">
+
+<h3 style="
+margin-bottom:10px;
+color:#399BFF;
+">
+👥 ${team.teamName}
+</h3>
+
+<p>🏫 <b>College:</b> ${team.college}</p>
+
+<p>👤 <b>Leader:</b> ${team.leader}</p>
+
+<p>
+<b>Status:</b>
+
+<span style="
+color:${team.status === "approved" ? "#00ff7f" : "#ffb347"};
+font-weight:bold;
+text-transform:uppercase;
+">
+${team.status}
+</span>
+
+</p>
+
+</div>
+
+`;
+
     });
-  }
+
+}
+async function loadStatistics(){
+
+    try{
+
+        const res = await fetch(API + "api/teams");
+
+        const teams = await res.json();
+
+        document.getElementById("teamCount").innerText =
+            teams.length;
+
+    }
+    catch(err){
+
+        console.log(err);
+
+    }
+
+}
+// =========================
+// Leaderboard
+// =========================
+async function getLeaderboard() {
+
+    const res = await fetch(API + "api/leaderboard");
+
+    const data = await res.json();
+
+    const lb = document.getElementById("leaderboardList");
+
+    let html = `
+
+<table style="
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+">
+
+<tr style="
+background:#399BFF;
+color:white;
+">
+
+<th style="padding:12px;">Rank</th>
+<th>Team</th>
+<th>Score</th>
+
+</tr>
+
+`;
+
+    data.forEach((team, index) => {
+
+        html += `
+
+<tr style="
+background:#111;
+color:white;
+text-align:center;
+">
+
+<td style="padding:12px;">
+${index + 1}
+</td>
+
+<td>
+${team.team}
+</td>
+
+<td>
+${team.score}
+</td>
+
+</tr>
+
+`;
+
+    });
+
+    html += "</table>";
+
+    lb.innerHTML = html;
+
+}
+document.addEventListener("DOMContentLoaded", function () {
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        document.getElementById("loginBtn").style.display = "none";
+        document.getElementById("dashboardBtn").style.display = "inline-block";
+    } else {
+        document.getElementById("loginBtn").style.display = "inline-block";
+        document.getElementById("dashboardBtn").style.display = "none";
+    }
+
+});
+function updateNavbar() {
+
+    const token = localStorage.getItem("token");
+
+    const loginBtn = document.getElementById("loginBtn");
+    const dashboardBtn = document.getElementById("dashboardBtn");
+
+    if (token) {
+        loginBtn.style.display = "none";
+        dashboardBtn.style.display = "inline-block";
+    } else {
+        loginBtn.style.display = "inline-block";
+        dashboardBtn.style.display = "none";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateNavbar);
+
+window.addEventListener("pageshow", updateNavbar);
+// =========================
+// Auto Load
+// =========================
+window.onload = function () {
+
+    loadTeams();
+
+    getLeaderboard();
+    loadStatistics();
+
+};
    </script>
 
 

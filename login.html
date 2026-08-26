@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Hackathon Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#399BFF,#EE71F9);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box{
+
+    width:380px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+
+}
+
+.login-box h2{
+
+    text-align:center;
+    color:#399BFF;
+    margin-bottom:30px;
+
+}
+
+.login-box input{
+
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+
+}
+
+.login-box input:focus{
+
+    outline:none;
+    border-color:#399BFF;
+    box-shadow:0 0 8px rgba(57,155,255,.3);
+
+}
+
+.login-btn{
+
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    background:#399BFF;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#1e88e5;
+
+}
+
+.home{
+
+    text-align:center;
+    margin-top:20px;
+
+}
+
+.home a{
+
+    color:#399BFF;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>Hackathon Login</h2>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email">
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button
+class="login-btn"
+onclick="login()">
+
+Login
+
+</button>
+
+<div class="home">
+
+<a href="index.html">
+← Back to Home
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+async function login(){
+
+    const email =
+        document.getElementById("email").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    if(!email || !password){
+
+        alert("Please enter email and password.");
+
+        return;
+
+    }
+
+    const res = await fetch(
+        "http://localhost:3000/api/auth/login",
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                email,
+                password
+            })
+
+        }
+    );
+
+    const data = await res.json();
+
+    if(data.token){
+
+        localStorage.setItem(
+            "token",
+            data.token
+        );
+
+        if(data.user.role==="admin"){
+
+            window.location.replace("admin.html");
+        }else{
+
+            window.location.replace("dashboard.html");
+
+        }
+
+    }
+    else{
+
+        alert(data.message);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

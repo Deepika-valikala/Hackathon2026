@@ -32,7 +32,13 @@ email VARCHAR(255) NOT NULL UNIQUE,
 name VARCHAR(255),
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
-
+CREATE TABLE users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 -- seed admin (optional)
 INSERT INTO admins (email, name) VALUES ('admin@example.com', 'Admin') ON DUPLICATE KEY UPDATE email=email;
